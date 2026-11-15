@@ -94,7 +94,7 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <Button disabled={isSubmitting} className="bg-yellow-400 uppercase font-semibold text-stone-800 px-3 py-4 inline-block rounded-full hover:bg-yellow-300 transition-colors duration-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed" >
+          <Button type = "primary" disabled={isSubmitting} className="bg-yellow-400 uppercase font-semibold text-stone-800 px-3 py-4 inline-block rounded-full hover:bg-yellow-300 transition-colors duration-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed" >
             {isSubmitting
               ? 'Placing order....'
               : "Order Now"}
