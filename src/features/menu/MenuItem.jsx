@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import { formatCurrency } from "../../utils/helpers";
 import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
 import DeleteItem from "../../ui/DeleteItem";
+import UpdateItemQuantity from "../../ui/UpdateItemQuantity";
 
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
@@ -29,7 +30,12 @@ function MenuItem({ pizza }) {
         <p className="capitalize italic text-sm text-stone-500">{ingredients.join(', ')}</p>
         <div className="mt-auto flex items-center justify-between">
           {!soldOut ? <p className="text-sm">{formatCurrency(unitPrice)}</p> : <p className="text-sm uppercase font-medium text-stone-500">Sold out</p>}
-          {IsInCart && <DeleteItem id={id} />}
+          {IsInCart && 
+          <div className="flex gap-3 items-center sm:gap-8">
+            <UpdateItemQuantity pizzaId={id} currentQuantity={currentQuantity} />
+             <DeleteItem id={id} />
+           </div>  
+          }
           {!soldOut && !IsInCart && <Button onClick = {handleAddtoCart} type = "small">Add to Cart</Button>}
         </div>
       </div>
